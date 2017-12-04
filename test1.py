@@ -1,20 +1,13 @@
-from dict import image_info #import of dicitionary
-from wavefile import wavfile #import of function
-from getcolors import get_colors #import of function
-from gettuples import get_tuples #import of function
-import numpy as np
+from dict import image_info
 from PIL import Image
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
-from scipy.io.wavfile import write
 import pyaudio
 import wave
-
-
+#from getcolors import get_colors
 app = Flask(__name__)
 Bootstrap(app)
 
-#**************************Roberto's Work **********************************************
 @app.route('/')
 @app.route('/home')
 def home():
@@ -29,13 +22,13 @@ def home():
 
     return render_template('home.html', title1 = title1, title2 = title2, title3 = title3 , id1 =id1, id2 = id2, id3 = id3)
 # *************************ANGEL'S WORK ************************************************
-@app.route('/play/<id>')
-def play(id):
+@app.route('/play', methods=['GET','POST'])
+def play():
     chunk = 1024
 
     #open a wav format music
     #THIS IS WHERE WE ARE WITH THE SOUND
-    f = wave.open(r'/static/'+ {id} + '.wav',"rb")
+    f = wave.open(r'C:/Users/Angel/Desktop/envs/proj-final/static/ps.wav',"rb")
     #instantiate PyAudio
     p = pyaudio.PyAudio()
     #open stream
