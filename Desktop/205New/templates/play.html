@@ -1,0 +1,21 @@
+<!-- ************ Roberto & Angel's work *****************-->
+<!-- NEEDS WORK-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head> <p>
+  <body>
+    {% block content %}
+    <div class="container">
+      <h1>"{{title}}"</h1>
+      <image class ="img-rounded img-responsive" src="{{url_for('static',filename = id + '.jpg')}}" alt ="{{'title'}}"
+      <a href = "/home"> Return to image list</a>
+    </div>
+    <!-- <a href="/play/"> press here</a> -->
+    <form action="/play<id>" method="post">
+        <button type="submit" value="Send"> Play Image </button>
+    </form>
+      {% endblock %}
+  </body>
+</html>
