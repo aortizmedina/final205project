@@ -1,10 +1,9 @@
-# from PIL import Image
-# from getcolors import get_colors
-# import wavefile
-# import numpy as np
+from PIL import Image
+
+
 #************************************** Roberto's Work **************************************************************
 def get_tuples(file_name):
-    im = Image.open(file_name + ".jpg")
+    im = Image.open("./static/" + file_name + ".jpg")
     width, height = im.size
 
     pixel_list = []

@@ -1,34 +1,73 @@
-
+import numpy as np
+from scipy.io.wavfile import write
 #**********************************All team members worked on this*******************************************************
 
 
 #this is going to take the "average" of the red, green, and blue values. It well then create a 3 frequencies and write a wave file.
 # def wavfile(red,green,blue)
 #samples per second
-samples_s = 44100
+def make_wave(reds,greens,blues, id):
+    samples_s = 44100
 
-# red_freq = np.mean(red) + 80
-# green_freq = np.mean(green) + 80
-# blue_freq = np.mean(blue) + 80
+    # red_freq = np.mean(red) + 80
+    # green_freq = np.mean(green) + 80
+    # blue_freq = np.mean(blue) + 80
 
-#frequency of sine wave, concert a
-freq_hz1 =121.683038822 # numbers are for testing
-freq_hz2 = 118.241009371
-freq_hz3 = 110.635499331
-#duration in seconds
-duration_s = 3.0
+    #frequency of sine wave, concert a
+    freq_red = np.mean(reds)
+    freq_green = np.mean(greens)
+    freq_blue = np.mean(blues)
 
-sample_nums = np.arange(duration_s * samples_s)
+    #if statements for making wave files more unique
+    if (freq_red < 105):
+        freq_red += 180
+    if(freq_green < 105):
+        freq_green += 180
+    if(freq_blue < 105):
+        freq_blue += 180
 
-#print(sample_nums[0:40])
+    if (freq_red < 120):
+        freq_red += 360
+    if (freq_green < 120):
+        freq_green += 360
+    if (freq_blue < 155):
+        freq_blue += 360
 
-waveform = np.sin(2 * np.pi * sample_nums * freq_hz / samples_s)
+    if (freq_red < 160):
+        freq_red += 420
+    if (freq_green < 160):
+        freq_green += 420
+    if (freq_blue < 160):
+        freq_blue += 420
 
-waveform2 = np.sin(2 * np.pi * sample_nums * freq_hz2 / samples_s)
+    if (freq_red < 255):
+        freq_red += 540
+    if (freq_green < 255):
+        freq_green += 540
+    if (freq_blue < 255):
+        freq_blue += 540
 
-waveform_quiet = waveform * 0.3
-waveform_quiet2 = waveform2 * 0.3
+    #duration in seconds
+    duration_s = 3.0
 
-waveform_integers = np.int16(waveform_quiet * 32767)
+    sample_nums = np.arange(duration_s * samples_s)
 
-write('sound.wave', samples_s, waveform_integers)
+    #print(sample_nums[0:40])
+
+    R_waveform = np.sin(2 * np.pi * sample_nums * freq_red / samples_s)
+    G_waveform = np.sin(2 * np.pi * sample_nums * freq_green / samples_s)
+    B_waveform = np.sin(2 * np.pi * sample_nums * freq_blue / samples_s)
+
+    waveform_quiet = R_waveform * 0.75
+    waveform_quiet2 = G_waveform * 0.75
+    waveform_quiet3 = B_waveform * 0.75
+
+    R_waveform_integers = np.int16(waveform_quiet * 32767)
+    G_waveform_integers = np.int16(waveform_quiet2 * 32767)
+    B_waveform_integers = np.int16(waveform_quiet3 * 32767)
+
+    all_color_sounds = R_waveform + G_waveform + B_waveform
+
+    #concat = np.concatenate((R_waveform_integers,G_waveform_integers,B_waveform_integers))
+
+    write('./static/'+ id + '.wave', samples_s, all_color_sounds)
