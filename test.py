@@ -7,8 +7,9 @@ from PIL import Image
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from scipy.io.wavfile import write
-#import pyaudio
-#import wavefile
+import wave
+import pyaudio
+# import wavefile
 
 
 app = Flask(__name__)
@@ -41,13 +42,13 @@ def home():
 
     return render_template('home.html', title1 = title1, title2 = title2, title3 = title3 , id1 =id1, id2 = id2, id3 = id3)
 # *************************ANGEL'S WORK ************************************************
-@app.route('/play/<id>')
+@app.route('/play/<id>', methods=['GET','POST'])
 def play(id):
     chunk = 1024
 
     #open a wav format music
     #THIS IS WHERE WE ARE WITH THE SOUND
-    f = wave.open(r'./static/'+ {id} + '.wav',"rb")
+    f = wave.open(r'./static/'+ id + '.wav',"rb")
     #instantiate PyAudio
     p = pyaudio.PyAudio()
     #open stream
@@ -67,6 +68,7 @@ def play(id):
     stream.stop_stream()
     stream.close()
     # return 'this is the home page'
-    return render_template('play.html')
     #close PyAudio
     p.terminate()
+
+    return render_template('play.html', id = id)

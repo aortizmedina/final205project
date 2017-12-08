@@ -70,4 +70,4 @@ def make_wave(reds,greens,blues, id):
 
     #concat = np.concatenate((R_waveform_integers,G_waveform_integers,B_waveform_integers))
 
-    write('./static/'+ id + '.wave', samples_s, all_color_sounds)
+    # write('./static/'+ id + '.wav', samples_s, all_color_sounds)
