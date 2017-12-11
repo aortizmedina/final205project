@@ -1,4 +1,6 @@
 #********************************Roberto's Work***************************************************
+# This function has 4 dictionaries 3 for RGB colors and 1 for all the colors.At the en
+#returns all the colors in the last dictionary.
 def get_colors(pixel_list):
     red_pixels = []
     blue_pixels = []

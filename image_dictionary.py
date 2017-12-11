@@ -12,3 +12,4 @@ image_info = [
         "title" : "Pidgeon Color",
     }
     ]
+# dictionary that has the id and the title of each picture.
