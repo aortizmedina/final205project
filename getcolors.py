@@ -1,3 +1,8 @@
+# Course: CST205
+# Title: getcolors.py(205 final project)
+# Abstract: We are creating a multimedia program that will allow a user to listen to a unique sound from a picture
+# Authors: Angel Ortiz, Roberto Bradley, Edith Gonzalez, Mac Cooper
+# Date: December 9, 2017
 #********************************Roberto's Work***************************************************
 # This function has 4 dictionaries 3 for RGB colors and 1 for all the colors.At the en
 #returns all the colors in the last dictionary.

@@ -1,3 +1,8 @@
+# Course: CST205
+# Title: wavefile.py(205 final project)
+# Abstract: We are creating a multimedia program that will allow a user to listen to a unique sound from a picture
+# Authors: Angel Ortiz, Roberto Bradley, Edith Gonzalez, Mac Cooper
+# Date: December 9, 2017
 import numpy as np
 from scipy.io.wavfile import write
 #**********************************All team members worked on this*******************************************************

@@ -1,3 +1,12 @@
+# Course: CST205 
+# Title: Test.py(205 final project)
+# Abstract: We are creating a multimedia program that will allow a user to listen to a unique sound from a picture
+# Authors: Angel Ortiz, Roberto Bradley, Edith Gonzalez, Mac Cooper
+# Date: December 9, 2017
+
+
+
+
 from image_dictionary import image_info #import of dicitionary
 from wavefile import make_wave #import of function
 from getcolors import get_colors #import of function
@@ -20,27 +29,22 @@ Bootstrap(app)
 @app.route('/home')
 def home():
 
-    #this gets the id of each picture
     id1 = image_info[0]["id"]
     id2 = image_info[1]["id"]
     id3 = image_info[2]["id"]
 
-    #this gets the title of each picture
     title1 = image_info[0]["title"]
     title2 = image_info[1]["title"]
     title3 = image_info[2]["title"]
 
-    #this gets the tuples from each picture using the id
     firstImage = get_tuples(id1)
     secondImage = get_tuples(id2)
     thirdImage = get_tuples(id3)
 
-    #gets the colors from the tuples
     reds_1,greens_1,blues_1 = get_colors(firstImage)
     reds_2,greens_2,blues_2 = get_colors(secondImage)
     reds_3,greens_3,blues_3 = get_colors(thirdImage)
 
-    #makes the unique sound from the colors of each picture
     make_wave(reds_1,greens_1,blues_1, id1)
     make_wave(reds_2,greens_2,blues_2, id2)
     make_wave(reds_3,greens_3,blues_3, id3)
@@ -64,7 +68,7 @@ def play(id):
     #read data
     data = f.readframes(chunk)
 
-    #play stream to play the sound
+    #play stream
     while data:
         stream.write(data)
         data = f.readframes(chunk)
