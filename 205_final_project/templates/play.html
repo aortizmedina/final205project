@@ -1,0 +1,69 @@
+<!-- ************ Roberto & Angel's work *****************-->
+<!-- NEEDS WORK-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+    body{background-color: darkblue;
+      text-align: center;
+      font-family: cursive;
+    }
+    footer{
+      font-size: 8pt;
+      color:red;
+    }
+    a{
+      color: yellow;
+    }
+    a:hover{
+      color:darkorange;
+    }
+    title{
+      text-align: center;
+      font-size: 26pt;
+      text-shadow: 2px 2px red;
+    }
+    h1{
+      text-shadow: 2px 2px green;
+    }
+    button{
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    header{
+      font-size: 32pt;
+      color: darkorange;
+    }
+
+    </style>
+    <title>PLAY</title>
+    <header>PictoWave</header>
+  </head> <p>
+  <body>
+    {% block content %}
+    <div class="container">
+      <h1>This is your {{id}} image sound! >:) </h1>
+      <image class ="img-rounded img-responsive" src="{{url_for('static',filename = id + '.jpg')}}" alt ="{{'title'}}"
+
+    </div>
+
+    <!-- <a href="/play/"> press here</a> -->
+    <form action="{{id}}" method="post">
+        <button type="submit" value="Send"> Play Image </button>
+    </form><br><br>
+        <a href="/home">Go to home page </a>
+      {% endblock %}
+  </body>
+  <footer>
+    CST205 Final Project<br>
+    Creators: Angel Ortiz, Roberto Bradley, Mac Cooper, Edith Gonzalez
+  </footer>
+</html>
